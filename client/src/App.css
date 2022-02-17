@@ -1,0 +1,44 @@
+#App {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+
+
+}
+
+.noBg{
+  background: none;
+}
+.blackBg{
+  background-color: #222;
+}
+.darkBg{
+  background-color: #49494D;
+}
+.lightgrayBg{
+  background-color: #E3E3CD;
+}
+.bluegreenBg{
+  background-color: #2D8E87;
+}
+.salmonBg{
+  background-color: #DF6747;
+}
+.whiteFont{
+  color: white;
+}
+
+.round{
+  border-radius: 50%;
+}
+.noBorder{
+  border: none;
+}
+
+.flex{
+  display: flex;
+}
+.flexCenter{
+  justify-content: center;
+  align-items: center;
+}
