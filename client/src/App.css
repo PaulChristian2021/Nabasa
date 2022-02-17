@@ -31,6 +31,9 @@
 .round{
   border-radius: 50%;
 }
+.smoothEdge{
+  border-radius: 15px;
+}
 .noBorder{
   border: none;
 }
