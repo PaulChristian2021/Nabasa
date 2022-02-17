@@ -1,0 +1,10 @@
+
+GET http://localhost:6262/account
+{
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+        "username":"paul"
+    }
+}

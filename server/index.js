@@ -4,7 +4,8 @@ const cors = require('cors');
 const port = process.env.PORT || 6262;
 
 const express = require('express')
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+
 
 const app = express()
 
@@ -32,8 +33,8 @@ app.post('/', (req, res) => {
     res.send('Nu-uh-uh, nothing to post here.')
 })
 
-const booksRouter = require('./routes/books')
-app.use('/books', booksRouter);
+const accountsRouter = require('./routes/accounts')
+app.use('/account', accountsRouter);
 
 app.listen(port , () => {
     console.log(`+++++PORT:${port}+++++`)
