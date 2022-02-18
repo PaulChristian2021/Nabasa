@@ -1,9 +1,10 @@
+
 #App {
   text-align: center;
-  width: 100vw;
-  height: 100vh;
+  
+  min-height: 100vh;
 
-
+  padding-bottom: 60px;
 }
 
 .noBg{
@@ -18,6 +19,9 @@
 .lightgrayBg{
   background-color: #E3E3CD;
 }
+.whiteBg{
+  background-color: white;
+}
 .bluegreenBg{
   background-color: #2D8E87;
 }
@@ -27,21 +31,54 @@
 .whiteFont{
   color: white;
 }
+.grayFont{
+  color: #e3e3cdc0;
+}
+.bluegreenFont{
+  color: #2D8E87;;
+}
+.salmonFont{
+  color: #DF6747;;
+}
 
 .round{
   border-radius: 50%;
 }
 .smoothEdge{
-  border-radius: 15px;
+  border-radius: 10px;
 }
 .noBorder{
   border: none;
+}
+.shadow{
+  box-shadow: 0 5px 5px 0 rgba(34, 34, 34, 0.13);
+}
+.noBulletList{
+  list-style: none;
+  padding-inline-start: 0;
 }
 
 .flex{
   display: flex;
 }
+.flexColumn{
+  flex-direction: column;
+}
 .flexCenter{
   justify-content: center;
   align-items: center;
 }
+.flexSBetween{
+  justify-content: space-between;
+}
+
+.marginAuto{
+  margin: auto;
+}
+.margin5{
+  margin: 5px;
+}
+.padding5{
+  padding: 5px;
+}
+

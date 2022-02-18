@@ -1,0 +1,37 @@
+.li{
+    text-align: left;
+    
+    width: 100%;
+    max-width: 325px;
+
+    user-select: none;
+    overflow: hidden;
+}
+.li p, .li ul{
+    padding-left: 10px
+}
+.genres{
+    margin-bottom: 16px;
+    
+}
+.genres li{
+    margin-right: 5px;
+}
+.options{
+    width: 105%;
+}
+.statuses {
+    width: 100%;
+    position: relative;
+    left: -10px;
+    bottom: -5px;
+    padding-left: 15px;
+}
+.statuses button{
+    font-size: 30px;
+    padding: 0;
+    margin: 0 15px;
+}
+.statuses button svg{
+    height: 100%;
+}
