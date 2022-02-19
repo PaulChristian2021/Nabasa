@@ -5,9 +5,9 @@ const BooksList = (props) => {
   return (
     <section className=''>
         <ul className={`${c.ul} flex flexColumn flexCenter noBulletList`}>
-            <BookItem></BookItem>
-            <BookItem></BookItem>
-            <BookItem></BookItem>
+            <BookItem myBooks={true}></BookItem>
+            <BookItem myBooks={true}></BookItem>
+            <BookItem myBooks={true}></BookItem>
         </ul>
     </section>
   )

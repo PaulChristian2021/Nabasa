@@ -31,6 +31,9 @@
 .whiteFont{
   color: white;
 }
+.lightgrayFont{
+  color: #E3E3CD;
+}
 .grayFont{
   color: #e3e3cdc0;
 }
@@ -57,6 +60,9 @@
   list-style: none;
   padding-inline-start: 0;
 }
+.pointer{
+  cursor: pointer;
+}
 
 .flex{
   display: flex;
@@ -71,6 +77,9 @@
 .flexSBetween{
   justify-content: space-between;
 }
+.flexSAround{
+  justify-content: space-around;
+}
 
 .marginAuto{
   margin: auto;
@@ -82,3 +91,7 @@
   padding: 5px;
 }
 
+
+.width100{
+  width: 100%;
+}

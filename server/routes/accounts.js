@@ -1,23 +1,33 @@
-const router = require('express').Router()
-const Account = require('../models/account')
+const router = require("express").Router();
+const Account = require("../models/account");
 
-router.get('/', async(req,res) => {
-    const {username} = req.body;
-    const {password} = req.body;
-    let account;
-    
-    try{
-        account = await Account.findOne({username: username});
-        
-    }catch(err){
-        res.status(500).json({message: err.message})
+router.post("/", async (req, res) => {
+  const { username } = req.body;
+  const { password } = req.body;
+  console.log(username, password);
+  let account;
+
+  try {
+    account = await Account.findOne({ username: username });
+    if (
+      username &&
+      password &&
+      username === account.username &&
+      password === account.password
+    ) {
+      res.status(200).send(account.books);
+    } else {
+      res.status(401).send({ message: "Invalid Credentials" });
     }
-    if(password === account.password){
-        res.status(200).send(account.books)
-    }else{
-        res.status(401).send({ message: "Invalid Credentials" })
+  } catch (err) {
+    if (err.message == "Cannot read properties of null (reading 'username')") {
+      res.status(401).send({ message: "Invalid Credentials" });
     }
-})
+    res
+      .status(500)
+      .json({ message: "Authentication Failed: [ " + err.message + " ]" });
+  }
+});
 // router.get('/:id',getUser, async(req,res) => {
 //     res.send(res.account);
 // })
@@ -36,4 +46,4 @@ router.get('/', async(req,res) => {
 //     next();
 // }
 
-module.exports = router
+module.exports = router;

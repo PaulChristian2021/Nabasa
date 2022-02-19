@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { AiOutlineCheckCircle, AiOutlineDelete } from "react-icons/ai";
 import { MdOutlinePending } from "react-icons/md";
 import { BsPencilFill } from "react-icons/bs";
+import { BiBookAdd } from "react-icons/bi";
 import c from "./BookItem.module.css";
 
 const BookItem = (props) => {
@@ -22,7 +23,7 @@ const BookItem = (props) => {
   return (
     <li
       onClick={toggleOptions}
-      className={`${c.li} flex flexSBetween flexColumn smoothEdge whiteBg shadow margin5`}
+      className={`${c.li} flex flexSBetween flexColumn smoothEdge whiteBg shadow margin5 pointer`}
     >
       <div className="flex flexSBetween padding5">
         <div>
@@ -37,7 +38,7 @@ const BookItem = (props) => {
         <div>
           <img
             src={props.image || "favicon.ico"}
-            alt={props.title || ''}
+            alt={props.title || ""}
             width={"100px"}
             height={"100%"}
           />
@@ -55,23 +56,42 @@ const BookItem = (props) => {
               </span>
             )}
           </p>
-          <div className={`notTarget ${c.statuses} flex flexSBetween padding5 darkBg`}>
-            <div className="flex ">
-              <button className="flex noBorder noBg grayFont">
-                <AiOutlineCheckCircle />
-              </button>
-              <button className="flex noBorder noBg whiteFont ">
-                <MdOutlinePending />
-              </button>
-            </div>
-            <div className="flex ">
-            <button className="flex noBorder noBg grayFont" style={{fontSize: '22px'}}>
-              <BsPencilFill />
-            </button>
-            <button className="flex noBorder noBg grayFont">
-              <AiOutlineDelete />
-            </button>
-            </div>
+          <div
+            className={`notTarget ${c.statuses} flex flexSBetween padding5 darkBg`}
+          >
+            {props.myBooks && (
+              <>
+                <div className="flex ">
+                  <button className="flex noBorder noBg grayFont">
+                    <AiOutlineCheckCircle />
+                  </button>
+                  <button className="flex noBorder noBg whiteFont ">
+                    <MdOutlinePending />
+                  </button>
+                </div>
+                <div className="flex ">
+                  <button
+                    className="flex noBorder noBg grayFont"
+                    style={{ fontSize: "22px" }}
+                  >
+                    <BsPencilFill />
+                  </button>
+                  <button className="flex noBorder noBg grayFont">
+                    <AiOutlineDelete />
+                  </button>
+                </div>
+              </>
+            )}
+            {!props.myBooks && (
+              <div className="flex width100">
+                <button
+                  className="flex flexCenter width100 noBorder noBg grayFont"
+                  title="Add book"
+                >
+                  <BiBookAdd />
+                </button>
+              </div>
+            )}
           </div>
         </div>
       )}

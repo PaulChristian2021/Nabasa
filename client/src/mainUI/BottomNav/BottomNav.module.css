@@ -3,6 +3,7 @@
     bottom: 0;
     border-radius: 15px 15px 0 0;
 
+    padding-top: 5px;
     width: 100%;
     height: 50px;
     justify-content: space-evenly;
@@ -25,4 +26,5 @@
 .sideButtons{
     width: 40px;
     height: 40px;
+    font-size: 25px;
 }

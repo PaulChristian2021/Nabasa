@@ -26,6 +26,7 @@
     left: -10px;
     bottom: -5px;
     padding-left: 15px;
+    cursor: default;
 }
 .statuses button{
     font-size: 30px;
