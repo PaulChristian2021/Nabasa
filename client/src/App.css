@@ -28,20 +28,34 @@
 .salmonBg{
   background-color: #DF6747;
 }
-.whiteFont{
-  color: white;
-}
 .lightgrayFont{
   color: #E3E3CD;
 }
 .grayFont{
   color: #e3e3cdc0;
 }
+.whiteFont{
+  color: white;
+}
+.darkFont{
+  color: #49494D
+}
 .bluegreenFont{
   color: #2D8E87;;
 }
 .salmonFont{
   color: #DF6747;;
+}
+.errorFont{
+  color: rgba(255, 41, 41, 0.87);
+  font-size: small;
+}
+
+.font25{
+  font-size: 25px;
+}
+.font70{
+  font-size: 70px;
 }
 
 .round{
@@ -90,7 +104,9 @@
 .padding5{
   padding: 5px;
 }
-
+.padding10{
+  padding: 10px;
+}
 
 .width100{
   width: 100%;

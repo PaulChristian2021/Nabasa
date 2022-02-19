@@ -1,5 +1,5 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { RiQuillPenFill } from "react-icons/ri";
 import { IoLibrarySharp } from "react-icons/io5";
@@ -8,39 +8,47 @@ import { ImLibrary } from "react-icons/im";
 
 import c from "./BottomNav.module.css";
 
-const BottomNav = () => {
+const BottomNav = (props) => {
   const navigate = useNavigate();
+  const {pathname} = useLocation();
+  
+  const [currentTab, setCurrentTab] = useState('/books')
 
-  function goToBooksList(route) {
+  useEffect(()=>{
+    setCurrentTab(pathname)
+  }, [pathname])
+
+  function goTo(route) {
     navigate(route);
   }
   return (
     <nav className={`${c.nav} flex flexCenter blackBg `}>
       <div className={`${c.div} flex flexCenter`}>
         <button
-          className={`${c.sideButtons} noBg noBorder grayFont`}
-          onClick={() => goToBooksList("/books")}
+          className={`${c.sideButtons} noBg noBorder grayFont ${currentTab === '/books' ? 'whiteFont' : ''}`}
+          onClick={() => goTo("/books")}
         >
           <IoLibrarySharp />
         </button>
         <button
-          className={`${c.sideButtons} noBg noBorder grayFont`}
-          onClick={() => goToBooksList("/library")}
+          className={`${c.sideButtons} noBg noBorder grayFont ${currentTab === '/library' ? 'whiteFont' : ''}`}
+          onClick={() => goTo("/library")}
         >
           <ImLibrary/>
         </button>
       </div>
       <button
         className={`${c.button} round salmonBg whiteFont noBorder`}
-        onClick={() => goToBooksList("/account")}
+        onClick={() => props.toggleNewBookModal()}
       >
         <RiQuillPenFill />
       </button>
       <div className={`${c.div} flex flexCenter`}>
-        <button className={`${c.sideButtons} noBg noBorder grayFont`}>C</button>
+        <button className={`${c.sideButtons} noBg noBorder grayFont ${currentTab === '/' ? 'whiteFont' : ''}`}>C</button>
+
         <button
-          className={`${c.sideButtons} noBg noBorder grayFont`}
-          onClick={() => goToBooksList("/account")}
+          className={`${c.sideButtons} noBg noBorder grayFont ${currentTab === '/account' ? 'whiteFont' : ''}`}
+          onClick={() => goTo("/account")}
         >
           <FaGlasses />
         </button>

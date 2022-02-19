@@ -6,8 +6,11 @@ import { BiBookAdd } from "react-icons/bi";
 import c from "./BookItem.module.css";
 
 const BookItem = (props) => {
+  console.log(props);
   const [options, setOptions] = useState(false);
-  const genres = props.genres ? props.genre : ["Genre 1", "Genre 2", "Genre 3"];
+  const genres = props.genres
+    ? props.genres
+    : ["Genre 1", "Genre 2", "Genre 3"];
 
   function toggleOptions(e) {
     if (

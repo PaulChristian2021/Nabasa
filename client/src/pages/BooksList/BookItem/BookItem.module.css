@@ -20,6 +20,9 @@
 .options{
     width: 105%;
 }
+.options p{
+    width: 95%;
+}
 .statuses {
     width: 100%;
     position: relative;

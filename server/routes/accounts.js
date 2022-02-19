@@ -22,10 +22,11 @@ router.post("/", async (req, res) => {
   } catch (err) {
     if (err.message == "Cannot read properties of null (reading 'username')") {
       res.status(401).send({ message: "Invalid Credentials" });
+    } else {
+      res
+        .status(500)
+        .json({ message: "Authentication Failed: [ " + err.message + " ]" });
     }
-    res
-      .status(500)
-      .json({ message: "Authentication Failed: [ " + err.message + " ]" });
   }
 });
 // router.get('/:id',getUser, async(req,res) => {

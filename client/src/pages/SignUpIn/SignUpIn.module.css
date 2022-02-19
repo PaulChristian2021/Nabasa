@@ -3,9 +3,23 @@
     height: 80vh;
 }
 .form{
-    text-align: left;
-    
+    text-align: left;   
+}
+.form>div{
+    padding-bottom: 10px;
+}
+.form input{
+    padding: 5px;
+    margin-top: 5px;
 }
 .button{
     margin-top: 10px;
+    
+}
+.see{
+    font-size: 30px;
+    display: block;
+    margin: 30px;
+    text-decoration: none;
+    padding: 10px;
 }
