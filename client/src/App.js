@@ -22,6 +22,8 @@ import BottomNav from "./mainUI/BottomNav/BottomNav";
 function App() {
   const [newBookModal, setNewBookModal] = useState(false);
 
+  const [googleBooks, setGoogleBooks] = useState([]);
+
   const [books, setBooks] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -93,9 +95,24 @@ function App() {
     console.log(books);
   }, [books]);
 
+  function getBooksFromGoogle(query) {
+    //get books from google books API
+    fetch(
+      `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${process.env.REACT_APP_GOOGLE_BOOKS_API_KEY}`
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        const resBooks = []
+        res.items.forEach((b) => resBooks.push(b.volumeInfo));
+        console.log(resBooks);
+        setGoogleBooks(resBooks)
+      });
+  }
+
   return (
     <BrowserRouter>
-      <div id="App" className="lightgrayBg">
+      <div id="App" className="vh100 lightgrayBg">
         <Header
           user={user}
           toRead={toRead}
@@ -108,7 +125,15 @@ function App() {
             path="/books"
             element={<BooksList books={books} loggedIn={loggedIn} />}
           />
-          <Route path="/library" element={<Library />} />
+          <Route
+            path="/library"
+            element={
+              <Library
+                getBooksFromGoogle={getBooksFromGoogle}
+                googleBooks={googleBooks}
+              />
+            }
+          />
           <Route
             path="/account"
             element={

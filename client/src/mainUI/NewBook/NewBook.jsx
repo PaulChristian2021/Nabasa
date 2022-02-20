@@ -44,7 +44,7 @@ const NewBook = (props) => {
   return (
     <div
       id="formDivBack"
-      className={`${c.div} flex flexCenter `}
+      className={`${c.div} vh100 flex flexCenter `}
       onClick={toggleNewBookModal}
     >
       <form onSubmit={addBook} className={`flex flexColumn whiteBg `}>

@@ -30,13 +30,29 @@ const BookItem = (props) => {
     >
       <div className="flex flexSBetween padding5">
         <div>
-          <p><b>{props.title || "Title"}</b></p>
-          <p><i>{props.author || "Author"}</i></p>
-          <ul className={`${c.genres} flex flexCenter noBulletList darkFont`}>
+          <p>
+            <b>{props.title || "Title"}</b>
+          </p>
+          <p>
+            <i>{Array.isArray(props.author) ? props.author.join(', ') : props.author || "Author"}</i>
+          </p>
+          <ul className={`${c.genres} flex noBulletList darkFont`}>
             {genres.map((g) => (
               <li key={g}>{g}</li>
             ))}
           </ul>
+          <p>
+            <small>
+              {!props.status === "google" && "Status: "}
+              {props.status === "haveRead"
+                ? "Finished"
+                : props.status === "reading"
+                ? "Reading"
+                :props.status === "google"
+                ? ''
+                : "Will read" || ""}
+            </small>
+          </p>
         </div>
         <div>
           <img
@@ -65,10 +81,16 @@ const BookItem = (props) => {
             {props.myBooks && (
               <>
                 <div className="flex ">
-                  <button className="flex noBorder noBg grayFont" title="Done reading?">
+                  <button
+                    className="flex noBorder noBg grayFont"
+                    title="Done reading?"
+                  >
                     <AiOutlineCheckCircle />
                   </button>
-                  <button className="flex noBorder noBg whiteFont " title="Currently reading?">
+                  <button
+                    className="flex noBorder noBg whiteFont "
+                    title="Currently reading?"
+                  >
                     <MdOutlinePending />
                   </button>
                 </div>

@@ -2,7 +2,6 @@
 #App {
   text-align: center;
   
-  min-height: 100vh;
 
   padding-bottom: 60px;
 }
@@ -74,6 +73,9 @@
   list-style: none;
   padding-inline-start: 0;
 }
+.noUnderline{
+  text-decoration: none;
+}
 .pointer{
   cursor: pointer;
 }
@@ -101,6 +103,9 @@
 .margin5{
   margin: 5px;
 }
+.margin15{
+  margin: 15px;
+}
 .padding5{
   padding: 5px;
 }
@@ -110,4 +115,10 @@
 
 .width100{
   width: 100%;
+}
+.height100{
+  height: 100%;
+}
+.vh100{
+  min-height: 100vh;
 }

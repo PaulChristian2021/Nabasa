@@ -13,7 +13,9 @@ body {
 }
 
 
-
+a:active, button:active{
+  transform: scale(.95);
+}
 a:hover, button:hover{
   cursor: pointer;
   filter: brightness(1.1);

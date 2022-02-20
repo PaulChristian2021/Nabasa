@@ -87,7 +87,7 @@ const SignUpIn = (props) => {
         </div>
       </form>
       {props.loggedIn && <div>
-          <Link to='/books' className={`${c.see} bluegreenBg shadow whiteFont smoothEdge`}>See my books</Link>
+          <Link to='/books' className={`${c.see} noUnderline bluegreenBg shadow whiteFont smoothEdge`}>See my books</Link>
         </div>}
     </section>
   );
