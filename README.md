@@ -1,4 +1,4 @@
-# Nabasa
+# Nabasa (under development)
 A simple MERN app for documenting books I have read, am reading, and will read. <br/>
 Currently designed only for mobile/tablet screens.
 
