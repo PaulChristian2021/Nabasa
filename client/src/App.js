@@ -33,7 +33,7 @@ function App() {
 
   function getAccountData({ username, password }) {
     setLoading(true);
-    const response = fetch("http://localhost:6262/account", {
+    const response = fetch("https://nabasa-mern.herokuapp.com/account", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
