@@ -7,13 +7,17 @@ const NewBook = (props) => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
-  const [readstatus, setReadstatus] = useState("");
+  const [status, setStatus] = useState("");
   const [image, setImage] = useState("");
   const [genre, setGenre] = useState("");
 
   function addBook(e) {
     e.preventDefault();
-    console.log(title, author, description, readstatus, image, genre);
+    console.log(title, author, description, status, image, genre);
+    props.addNewBook({
+        title, author, description, status, image, genre
+    })
+    // props.toggleNewBookModal();
   }
   function getGenre(value) {
     const genre = value.split(".");
@@ -21,7 +25,7 @@ const NewBook = (props) => {
   }
 
   function toggleNewBookModal(e) {
-    if (e.target.id == "formDivBack" || e.target.id == "formAddButton" ) {
+    if (e.target.id == "formDivBack") {
       props.toggleNewBookModal();
     }
   }
@@ -62,7 +66,7 @@ const NewBook = (props) => {
             <input
               type="radio"
               name="readstatus"
-              onClick={() => setReadstatus("haveRead")}
+              onClick={() => setStatus("haveRead")}
             />
             Finished
           </label>
@@ -70,7 +74,7 @@ const NewBook = (props) => {
             <input
               type="radio"
               name="readstatus"
-              onClick={() => setReadstatus("reading")}
+              onClick={() => setStatus("reading")}
             />
             Reading
           </label>
@@ -78,7 +82,7 @@ const NewBook = (props) => {
             <input
               type="radio"
               name="readstatus"
-              onClick={() => setReadstatus("toRead")}
+              onClick={() => setStatus("willRead")}
             />
             To Read
           </label>

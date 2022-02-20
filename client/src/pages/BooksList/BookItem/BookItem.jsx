@@ -30,9 +30,9 @@ const BookItem = (props) => {
     >
       <div className="flex flexSBetween padding5">
         <div>
-          <p>{props.title || "Title"}</p>
-          <p>{props.author || "Author"}</p>
-          <ul className={`${c.genres} flex flexCenter noBulletList`}>
+          <p><b>{props.title || "Title"}</b></p>
+          <p><i>{props.author || "Author"}</i></p>
+          <ul className={`${c.genres} flex flexCenter noBulletList darkFont`}>
             {genres.map((g) => (
               <li key={g}>{g}</li>
             ))}

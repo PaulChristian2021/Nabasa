@@ -66,7 +66,7 @@ const SignUpIn = (props) => {
               <label htmlFor="">Password</label>
               <br />
               <input
-                type="text"
+                type="password"
                 placeholder="at least 4 characters"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

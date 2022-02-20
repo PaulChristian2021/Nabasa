@@ -55,19 +55,19 @@ function App() {
     // if(e.target.tag == '')
     setNewBookModal(!newBookModal)
   }
+  function addNewBook(book){
+    const newBook = {...book, _id: String(Math.random()*9999999999)}
+    setBooks(state => [...state, newBook])
+  }
   
   useEffect(()=>{
-    // if(loggedIn){
+    // updates the head counters
       const z = books.filter(b=>b.status === 'haveRead')
-      console.log(z)
       setHaveRead(z.length)
       const y = books.filter(b=>b.status === 'reading')
-      console.log(y)
       setReading(y.length)
       const x = books.filter(b=>b.status === 'willRead')
-      console.log(x)
       setToRead(x.length)
-    // }
   },[books])
 
   return (
@@ -90,7 +90,7 @@ function App() {
         </Routes>
         <BottomNav toggleNewBookModal={toggleNewBookModal}/>
         {loading && <Loading />}
-        {newBookModal && ReactDOM.createPortal(<NewBook toggleNewBookModal={toggleNewBookModal} />, document.querySelector('#root'))}
+        {newBookModal && ReactDOM.createPortal(<NewBook toggleNewBookModal={toggleNewBookModal}  addNewBook={addNewBook} />, document.querySelector('#root'))}
       </div>
     </BrowserRouter>
   );
