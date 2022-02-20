@@ -2,7 +2,11 @@
 A simple MERN app for documenting books I have read, am reading, and will read. Currently designed only for mobile/tablet screens.
 
 https://nabasa.netlify.app/
+username: paul
+password: paul
 
+username: mina
+password: mina
 
 # Stack
 MongoDB(w/ Mongoose)
