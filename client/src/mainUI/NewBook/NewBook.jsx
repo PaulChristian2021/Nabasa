@@ -11,13 +11,24 @@ const NewBook = (props) => {
   const [image, setImage] = useState("");
   const [genre, setGenre] = useState("");
 
+  const [noTitle, setNoTitle] = useState(false);
+  const [noStatus, setNoStatus] = useState(false);
+
   function addBook(e) {
     e.preventDefault();
-    console.log(title, author, description, status, image, genre);
-    props.addNewBook({
-        title, author, description, status, image, genre
-    })
-    // props.toggleNewBookModal();
+    title ? setNoTitle(false) : setNoTitle(true);
+    status ? setNoStatus(false) : setNoStatus(true);
+    if (props.loggedIn) {
+        console.log(title, author, description, status, image, genre);
+        props.addNewBook({
+          title,
+          author,
+          description,
+          status,
+          image,
+          genre,
+        });
+    }
   }
   function getGenre(value) {
     const genre = value.split(".");
@@ -38,12 +49,18 @@ const NewBook = (props) => {
     >
       <form onSubmit={addBook} className={`flex flexColumn whiteBg `}>
         <p className="font25">Add a book</p>
-        <label htmlFor="">Title</label>
+        <label htmlFor="">
+          Title
+          {noTitle && <span className="errorFont"> - required</span>}
+        </label>
         <input
           type="text"
           placeholder="Book title"
           value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => {
+            setNoTitle(false);
+            setTitle(e.target.value);
+          }}
         />
         <label htmlFor="">Author</label>
         <input
@@ -59,14 +76,20 @@ const NewBook = (props) => {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <span>Read Status</span>
+        <span>
+          Read Status
+          {noStatus && <span className="errorFont"> - required</span>}
+        </span>
         <br />
         <div className={`${c.readstatus} flex flexSAround`}>
           <label>
             <input
               type="radio"
               name="readstatus"
-              onClick={() => setStatus("haveRead")}
+              onClick={() => {
+                setNoStatus(false);
+                setStatus("haveRead");
+              }}
             />
             Finished
           </label>
@@ -103,7 +126,8 @@ const NewBook = (props) => {
           value={genre}
           onChange={(e) => getGenre(e.target.value)}
         />
-        <button id="formAddButton"
+        <button
+          id="formAddButton"
           className={`${c.button} font25 salmonBg whiteFont shadow noBorder padding5`}
         >
           <BiBookAdd />

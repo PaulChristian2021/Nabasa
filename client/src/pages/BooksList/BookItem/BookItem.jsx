@@ -10,7 +10,7 @@ const BookItem = (props) => {
   const [options, setOptions] = useState(false);
   const genres = props.genres
     ? props.genres
-    : ["Genre 1", "Genre 2", "Genre 3"];
+    : ["Genre 1", "Genre 2", "Genre ..."];
 
   function toggleOptions(e) {
     if (
@@ -53,9 +53,9 @@ const BookItem = (props) => {
           <p>
             {props.description || (
               <span>
-                Alas, the coder was rather busy. Or lazy.
+                Alas, someone was rather busy. Or lazy.
                 <br />
-                Therefore, no description provided.
+                Therefore, no description was provided.
               </span>
             )}
           </p>

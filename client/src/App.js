@@ -69,6 +69,11 @@ function App() {
       const x = books.filter(b=>b.status === 'willRead')
       setToRead(x.length)
   },[books])
+  useEffect(()=>{
+    //localStorage
+    console.log(books)
+    
+  },[books])
 
   return (
     <BrowserRouter>
@@ -90,7 +95,7 @@ function App() {
         </Routes>
         <BottomNav toggleNewBookModal={toggleNewBookModal}/>
         {loading && <Loading />}
-        {newBookModal && ReactDOM.createPortal(<NewBook toggleNewBookModal={toggleNewBookModal}  addNewBook={addNewBook} />, document.querySelector('#root'))}
+        {newBookModal && ReactDOM.createPortal(<NewBook loggedIn={loggedIn} toggleNewBookModal={toggleNewBookModal}  addNewBook={addNewBook} />, document.querySelector('#root'))}
       </div>
     </BrowserRouter>
   );
