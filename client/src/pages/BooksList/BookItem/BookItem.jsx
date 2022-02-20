@@ -55,7 +55,7 @@ const BookItem = (props) => {
           </p>
         </div>
         <div>
-          <img
+          <img 
             src={props.image || "favicon.ico"}
             alt={props.title || ""}
             width={"100px"}
