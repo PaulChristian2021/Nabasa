@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-import {FcReading} from 'react-icons/fc'
+import { FcReading } from "react-icons/fc";
 import c from "./SignUpIn.module.css";
 
 const SignUpIn = (props) => {
-  
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [invaldUsername, setInvaldUsername] = useState(false);
@@ -42,9 +41,11 @@ const SignUpIn = (props) => {
 
   return (
     <section className={`${c.section} flex flexCenter flexColumn`}>
-      {props.loggedIn && <div>
-        <FcReading className="font70 "/>
-        </div>}
+      {props.loggedIn && (
+        <div>
+          <FcReading className="font70 " />
+        </div>
+      )}
       <form className={c.form} onSubmit={login}>
         {!props.loggedIn && (
           <>
@@ -86,9 +87,16 @@ const SignUpIn = (props) => {
           </button>
         </div>
       </form>
-      {props.loggedIn && <div>
-          <Link to='/books' className={`${c.see} noUnderline bluegreenBg shadow whiteFont smoothEdge`}>See my books</Link>
-        </div>}
+      {props.loggedIn && (
+        <div>
+          <Link
+            to="/books"
+            className={`${c.see} noUnderline bluegreenBg shadow whiteFont smoothEdge`}
+          >
+            See my books
+          </Link>
+        </div>
+      )}
     </section>
   );
 };

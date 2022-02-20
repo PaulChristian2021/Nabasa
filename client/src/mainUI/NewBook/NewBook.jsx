@@ -36,7 +36,7 @@ const NewBook = (props) => {
   }
 
   function toggleNewBookModal(e) {
-    if (e.target.id == "formDivBack") {
+    if (e.target.id === "formDivBack") {
       props.toggleNewBookModal();
     }
   }

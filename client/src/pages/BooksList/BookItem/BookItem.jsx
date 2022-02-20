@@ -14,10 +14,10 @@ const BookItem = (props) => {
 
   function toggleOptions(e) {
     if (
-      e.target.tagName == "BUTTON" ||
-      e.target.tagName == "svg" ||
-      e.target.tagName == "path" ||
-      e.target.tagName == "circle" ||
+      e.target.tagName === "BUTTON" ||
+      e.target.tagName === "svg" ||
+      e.target.tagName === "path" ||
+      e.target.tagName === "circle" ||
       e.target.classList.contains("notTarget")
     )
       return;

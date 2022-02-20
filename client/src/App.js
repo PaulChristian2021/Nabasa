@@ -4,8 +4,8 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  useNavigate,
-  useLocation,
+  // useNavigate,
+  // useLocation,
 } from "react-router-dom";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "./App.css";
@@ -35,7 +35,7 @@ function App() {
 
   function getAccountData({ username, password }) {
     setLoading(true);
-    const response = fetch("https://nabasa-mern.herokuapp.com/account", {
+    fetch("https://nabasa-mern.herokuapp.com/account", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
