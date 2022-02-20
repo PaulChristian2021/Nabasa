@@ -19,15 +19,15 @@ const NewBook = (props) => {
     title ? setNoTitle(false) : setNoTitle(true);
     status ? setNoStatus(false) : setNoStatus(true);
     if (props.loggedIn) {
-        console.log(title, author, description, status, image, genre);
-        props.addNewBook({
-          title,
-          author,
-          description,
-          status,
-          image,
-          genre,
-        });
+      console.log(title, author, description, status, image, genre);
+      props.addNewBook({
+        title,
+        author,
+        description,
+        status,
+        image,
+        genre,
+      });
     }
   }
   function getGenre(value) {
@@ -97,7 +97,10 @@ const NewBook = (props) => {
             <input
               type="radio"
               name="readstatus"
-              onClick={() => setStatus("reading")}
+              onClick={() => {
+                setNoStatus(false);
+                setStatus("reading");
+              }}
             />
             Reading
           </label>
@@ -105,7 +108,10 @@ const NewBook = (props) => {
             <input
               type="radio"
               name="readstatus"
-              onClick={() => setStatus("willRead")}
+              onClick={() => {
+                setNoStatus(false);
+                setStatus("willRead");
+              }}
             />
             To Read
           </label>

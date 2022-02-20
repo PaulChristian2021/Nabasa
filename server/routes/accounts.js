@@ -29,6 +29,11 @@ router.post("/", async (req, res) => {
     }
   }
 });
+
+router.post('/updateBooks', async (req,res) => {
+    const books = req.body
+    console.log(books)
+})
 // router.get('/:id',getUser, async(req,res) => {
 //     res.send(res.account);
 // })

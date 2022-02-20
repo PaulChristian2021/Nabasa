@@ -65,10 +65,10 @@ const BookItem = (props) => {
             {props.myBooks && (
               <>
                 <div className="flex ">
-                  <button className="flex noBorder noBg grayFont">
+                  <button className="flex noBorder noBg grayFont" title="Done reading?">
                     <AiOutlineCheckCircle />
                   </button>
-                  <button className="flex noBorder noBg whiteFont ">
+                  <button className="flex noBorder noBg whiteFont " title="Currently reading?">
                     <MdOutlinePending />
                   </button>
                 </div>
