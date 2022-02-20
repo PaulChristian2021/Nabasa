@@ -1,25 +1,26 @@
 # Nabasa
-A simple MERN app for documenting books I have read, am reading, and will read. Currently designed only for mobile/tablet screens.
+A simple MERN app for documenting books I have read, am reading, and will read. <br/>
+Currently designed only for mobile/tablet screens.
 
-https://nabasa.netlify.app/
-username: paul
-password: paul
+https://nabasa.netlify.app/ <br/>
+username: paul<br/>
+password: paul<br/>
 
-username: mina
-password: mina
+username: mina<br/>
+password: mina<br/>
 
 # Stack
-MongoDB(w/ Mongoose)
-NodeJS(w/ Express)
-ReactJS
-Third-party libraries, API and resources(React icons, spinner, free online image editor, google images)
+MongoDB(w/ Mongoose)<br/>
+NodeJS(w/ Express)<br/>
+ReactJS<br/>
+Third-party libraries, API and resources(React icons, spinner, free online image editor, google images)<br/>
 
 # Features
--CRUD
--Login and Signup
--books API integration
--database integration
--SPA (single page app)
--clean UI & UX
+-CRUD<br/>
+-Login and Signup<br/>
+-books API integration<br/>
+-database integration<br/>
+-SPA (single page app)<br/>
+-clean UI & UX<br/>
 
 
