@@ -12,7 +12,7 @@
 }
 .genres{
     margin-bottom: 16px;
-    
+    flex-wrap: wrap;
 }
 .genres li{
     margin-right: 5px;
