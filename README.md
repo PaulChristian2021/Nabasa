@@ -1,5 +1,8 @@
 # Nabasa
-A simple app for documenting books I have read, am reading, and will read.
+A simple MERN app for documenting books I have read, am reading, and will read. Currently designed only for mobile/tablet screens.
+
+https://nabasa.netlify.app/
+
 
 # Stack
 MongoDB(w/ Mongoose)
