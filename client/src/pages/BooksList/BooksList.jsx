@@ -25,7 +25,7 @@ const BooksList = (props) => {
       )}
       {props.loggedIn && (
         <>
-          <h1>Your Books</h1>
+          <h1 className="darkFont">Your Books</h1>
           <ul
             className={`${c.ul} flex flexColumn flexCenter noBulletList height100 width100`}
           >

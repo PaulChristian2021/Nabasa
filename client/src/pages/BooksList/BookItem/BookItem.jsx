@@ -45,12 +45,12 @@ const BookItem = (props) => {
             <small>
               {!props.status === "google" && "Status: "}
               {props.status === "haveRead"
-                ? "Finished"
+                ? <span className="darkFont padding5">Finished</span>
                 : props.status === "reading"
-                ? "Reading"
+                ? <span className="whiteFont bluegreenBg padding5">Reading</span>
                 :props.status === "google"
                 ? ''
-                : "Will read" || ""}
+                : <span className="whiteFont darkBg padding5">Will read</span> || ""}
             </small>
           </p>
         </div>
