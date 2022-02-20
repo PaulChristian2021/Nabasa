@@ -1,3 +1,9 @@
+# Frontend part of Nabasa
+ (under development)<br/>
+https://nabasa.netlify.app/
+
+For the backend see the readme in the server directory
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
