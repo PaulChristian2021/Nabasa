@@ -47,7 +47,7 @@ const NewBook = (props) => {
       className={`${c.div} vh100 flex flexCenter `}
       onClick={toggleNewBookModal}
     >
-      <form onSubmit={addBook} className={`flex flexColumn whiteBg `}>
+      <form onSubmit={addBook} className={`flex flexColumn whiteBg`}>
         <p className="font25">Add a book</p>
         <label htmlFor="">
           Title
@@ -70,8 +70,8 @@ const NewBook = (props) => {
           onChange={(e) => setAuthor(e.target.value)}
         />
         <label htmlFor="">Description</label>
-        <input
-          type="text"
+        <textarea
+          className=" maxWidth100parent"
           placeholder="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
@@ -81,7 +81,7 @@ const NewBook = (props) => {
           {noStatus && <span className="errorFont"> - required</span>}
         </span>
         <br />
-        <div className={`${c.readstatus} flex flexSAround`}>
+        <div className={`${c.readstatus} flex flexSAround maxWidth400`}>
           <label>
             <input
               type="radio"

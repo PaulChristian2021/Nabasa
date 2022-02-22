@@ -112,9 +112,11 @@
 .padding10{
   padding: 10px;
 }
-
 .width100{
   width: 100%;
+}
+.maxWidth100parent{
+  max-width: 100%;
 }
 .maxWidth400{max-width: 400px;}
 .height100{

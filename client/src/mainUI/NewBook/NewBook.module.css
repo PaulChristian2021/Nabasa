@@ -7,11 +7,15 @@
 .div form{
     padding: 20px;
     width: 85%;
+    max-width: 600px;
     height: 82%;
     overflow: auto;
 }
 .div form>p{
     margin-top: 0;
+}
+.div form>textarea{
+    margin-bottom: 10px;
 }
 .div form label{
     margin-bottom: 5px;
