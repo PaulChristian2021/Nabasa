@@ -18,7 +18,7 @@ const NewBook = (props) => {
     e.preventDefault();
     title ? setNoTitle(false) : setNoTitle(true);
     status ? setNoStatus(false) : setNoStatus(true);
-    if (props.loggedIn) {
+    if (props.loggedIn && title && status) {
       console.log(title, author, description, status, image, genre);
       props.addNewBook({
         title,
