@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import BookItem from "../../components/BookItem/BookItem";
+import BooksList from "../../components/BooksList/BooksList";
 
 import SearchBar from "../../components/SearchBar/SearchBar";
 
@@ -44,19 +44,8 @@ const Library = (props) => {
           </small>
         </div>
       )}
-      <ul className={`${c.ul} flex flexColumn flexCenter noBulletList`}>
-        {props.googleBooks.map((b) => (
-          <BookItem
-            author={b.authors}
-            genres={b.categories}
-            image={b.imageLinks ? b.imageLinks["smallThumbnail"] : ""}
-            description={b.description}
-            title={b.title}
-            status={"google"}
-            key={b.infoLink}
-          ></BookItem>
-        ))}
-      </ul>
+
+      <BooksList googleBooks={props.googleBooks} />
     </section>
   );
 };

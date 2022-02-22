@@ -34,7 +34,11 @@ const BookItem = (props) => {
             <b>{props.title || "Title"}</b>
           </p>
           <p>
-            <i>{Array.isArray(props.author) ? props.author.join(', ') : props.author || "Author"}</i>
+            <i>
+              {Array.isArray(props.author)
+                ? props.author.join(", ")
+                : props.author || "Author"}
+            </i>
           </p>
           <ul className={`${c.genres} flex noBulletList darkFont`}>
             {genres.map((g) => (
@@ -44,18 +48,21 @@ const BookItem = (props) => {
           <p>
             <small>
               {!props.status === "google" && "Status: "}
-              {props.status === "haveRead"
-                ? <span className="darkFont padding5">Finished</span>
-                : props.status === "reading"
-                ? <span className="whiteFont bluegreenBg padding5">Reading</span>
-                :props.status === "google"
-                ? ''
-                : <span className="whiteFont darkBg padding5">Will read</span> || ""}
+              {props.status === "haveRead" ? (
+                <span className="darkFont padding5">Finished</span>
+              ) : props.status === "reading" ? (
+                <span className="whiteFont bluegreenBg padding5">Reading</span>
+              ) : props.status === "google" ? (
+                ""
+              ) : (
+                <span className="whiteFont darkBg padding5">Will read</span> ||
+                ""
+              )}
             </small>
           </p>
         </div>
         <div>
-          <img 
+          <img
             src={props.image || "favicon.ico"}
             alt={props.title || ""}
             width={"100px"}

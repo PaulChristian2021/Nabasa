@@ -4,6 +4,7 @@ import BookItem from "../../components/BookItem/BookItem";
 
 import { IoLibrarySharp } from "react-icons/io5";
 import c from "./MyLibrary.module.css";
+import BooksList from "../../components/BooksList/BooksList";
 const MyLibrary = (props) => {
   console.log(props.books);
   return (
@@ -26,22 +27,7 @@ const MyLibrary = (props) => {
       {props.loggedIn && (
         <>
           <h1 className="darkFont">Your Books</h1>
-          <ul
-            className={`${c.ul} flex flexColumn flexCenter noBulletList height100 width100`}
-          >
-            {props.books.map((b) => (
-              <BookItem
-                myBooks={true}
-                key={b._id}
-                title={b.title}
-                author={b.author}
-                description={b.description}
-                genres={b.genres}
-                image={b.image}
-                status={b.status}
-              ></BookItem>
-            ))}
-          </ul>
+          <BooksList books={props.books} />
         </>
       )}
     </section>
