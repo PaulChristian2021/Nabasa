@@ -63,10 +63,10 @@ const BookItem = (props) => {
         </div>
         <div>
           <img
-            src={props.image || "feather.svg"}
+            src={props.image || "optimizedfeather.svg"}
             alt={props.title || ""}
             width={"100px"}
-            height={"100%"}
+            
           />
         </div>
       </div>
