@@ -116,6 +116,7 @@
 .width100{
   width: 100%;
 }
+.maxWidth400{max-width: 400px;}
 .height100{
   height: 100%;
 }
