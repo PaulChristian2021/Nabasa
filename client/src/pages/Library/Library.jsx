@@ -6,7 +6,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 
 import { GiSpellBook, GiBookStorm } from "react-icons/gi";
 
-import c from "./Library.module.css";
+
 
 const Library = (props) => {
   const [query, setQuery] = useState("");
