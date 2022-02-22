@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import BookItem from "../BooksList/BookItem/BookItem";
+import BookItem from "../../components/BookItem/BookItem";
 
 import SearchBar from "../../components/SearchBar/SearchBar";
 

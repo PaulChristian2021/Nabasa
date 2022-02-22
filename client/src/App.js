@@ -10,7 +10,7 @@ import {
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "./App.css";
 
-import BooksList from "./pages/BooksList/BooksList";
+import MyLibrary from "./pages/MyLibrary/MyLibrary";
 import Library from "./pages/Library/Library";
 import SignUpIn from "./pages/SignUpIn/SignUpIn";
 import Loading from "./pages/Loading/Loading";
@@ -120,10 +120,10 @@ function App() {
           haveRead={haveRead}
         />
         <Routes>
-          <Route path="*" element={<BooksList />} />
+          <Route path="*" element={<MyLibrary />} />
           <Route
             path="/books"
-            element={<BooksList books={books} loggedIn={loggedIn} />}
+            element={<MyLibrary books={books} loggedIn={loggedIn} />}
           />
           <Route
             path="/library"

@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import BookItem from "./BookItem/BookItem";
+import BookItem from "../../components/BookItem/BookItem";
 
 import { IoLibrarySharp } from "react-icons/io5";
-import c from "./BooksList.module.css";
-const BooksList = (props) => {
+import c from "./MyLibrary.module.css";
+const MyLibrary = (props) => {
   console.log(props.books);
   return (
     <section className={`${c.section}  height100 width100`}>
@@ -48,4 +48,4 @@ const BooksList = (props) => {
   );
 };
 
-export default BooksList;
+export default MyLibrary;
