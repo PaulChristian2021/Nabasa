@@ -27,6 +27,7 @@ function App() {
   const [books, setBooks] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [goToBooksAfterLogin, setGoToBooksAfterLogin] = useState(false)
 
   const [user, setUser] = useState("");
   const [toRead, setToRead] = useState(0);
@@ -96,6 +97,8 @@ function App() {
     console.log(books);
   }, [books]);
 
+  
+
   function getBooksFromGoogle(query) {
     //get books from google books API
     fetch(
@@ -142,6 +145,8 @@ function App() {
                 getAccountData={getAccountData}
                 logout={logout}
                 loggedIn={loggedIn}
+                goToBooksAfterLogin={goToBooksAfterLogin}
+                setGoToBooksAfterLogin={setGoToBooksAfterLogin}
               />
             }
           />

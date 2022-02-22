@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 import { FcReading } from "react-icons/fc";
 import c from "./SignUpIn.module.css";
 
 const SignUpIn = (props) => {
+  const navigate = useNavigate()
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [invaldUsername, setInvaldUsername] = useState(false);
@@ -18,6 +19,7 @@ const SignUpIn = (props) => {
           username: username,
           password: password,
         });
+        props.setGoToBooksAfterLogin(false)
         setUsername("");
         setPassword("");
         setInvaldUsername(false);
@@ -38,6 +40,13 @@ const SignUpIn = (props) => {
       props.logout();
     }
   }
+
+  useEffect(()=>{
+    if(props.loggedIn && !props.goToBooksAfterLogin) {
+      navigate('/books')
+      props.setGoToBooksAfterLogin(true)
+    }
+  }, [props.loggedIn])
 
   return (
     <section className={`${c.section} flex flexCenter flexColumn`}>
