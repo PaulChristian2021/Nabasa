@@ -5,7 +5,7 @@ const BooksList = (props) => {
     const books = props.books ? props.books : props.googleBooks;
     const img = props.googleBooks ? 'google' : false
     const myBooks = props.googleBooks ? false : true;
-    
+    console.log(props)
   return (
     <ul
       className={`${props.className ? props.className : ''} flex flexColumn flexCenter noBulletList height100 width100 `}
@@ -17,7 +17,7 @@ const BooksList = (props) => {
           title={b.title}
           author={b.author}
           description={b.description}
-          genres={b.genres}
+          genres={props.googleBooks ? b.categories : b.genres}
           image={img ? b.imageLinks ? b.imageLinks["smallThumbnail"] : '' : b.image}
           status={props.googleBooks ? 'google' : b.status}
         ></BookItem>

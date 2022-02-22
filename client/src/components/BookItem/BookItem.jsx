@@ -6,11 +6,11 @@ import { BiBookAdd } from "react-icons/bi";
 import c from "./BookItem.module.css";
 
 const BookItem = (props) => {
-  console.log(props);
+  
   const [options, setOptions] = useState(false);
   const genres = props.genres
     ? props.genres
-    : ["Genre 1", "Genre 2", "Genre ..."];
+    : ["No genre listed"];
 
   function toggleOptions(e) {
     if (
@@ -37,7 +37,7 @@ const BookItem = (props) => {
             <i>
               {Array.isArray(props.author)
                 ? props.author.join(", ")
-                : props.author || "Author"}
+                : props.author || "No author listed"}
             </i>
           </p>
           <ul className={`${c.genres} flex noBulletList darkFont`}>
@@ -76,7 +76,7 @@ const BookItem = (props) => {
           <p>
             {props.description || (
               <span>
-                Alas, someone was rather busy. Or lazy.
+                Alas, someone was rather busy. Or lazy. Or there was just no description listed.
                 <br />
                 Therefore, no description was provided.
               </span>
