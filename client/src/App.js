@@ -71,11 +71,11 @@ function App() {
     setBooks([]);
     setUser('')
   }
-  function toggleNewBookModal() {
-    // if(e.target.tag == '')
-    setNewBookModal(!newBookModal);
+  function toggleNewBookModal(val) {
+    setNewBookModal(!!val ? val : !newBookModal);
   }
   function addNewBook(book) {
+    console.log('add book: '+book)
     const newBook = { ...book, _id: String(Math.random() * 9999999999) };
     setBooks((state) => {
       updateBooksToDB([...state, newBook]);

@@ -28,6 +28,7 @@ const NewBook = (props) => {
         image,
         genre,
       });
+      props.toggleNewBookModal(false)
     }
   }
   function getGenre(value) {
