@@ -68,6 +68,7 @@ function App() {
   function logout() {
     setLoggedIn(false);
     setBooks([]);
+    setUser('')
   }
   function toggleNewBookModal() {
     // if(e.target.tag == '')
