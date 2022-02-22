@@ -50,7 +50,7 @@ const SignUpIn = (props) => {
       navigate('/books')
       setGoToBooksAfterLogin(true)
     }
-  }, [loggedIn])
+  }, [loggedIn, navigate, goToBooksAfterLogin, setGoToBooksAfterLogin])
 
   return (
     <section className={`${c.section} flex flexCenter flexColumn`}>
