@@ -6,6 +6,10 @@ import c from "./SignUpIn.module.css";
 
 const SignUpIn = (props) => {
   const navigate = useNavigate()
+  const loggedIn = props.loggedIn;
+  const goToBooksAfterLogin = props.goToBooksAfterLogin;
+  const setGoToBooksAfterLogin = props.setGoToBooksAfterLogin;
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [invaldUsername, setInvaldUsername] = useState(false);
@@ -13,7 +17,7 @@ const SignUpIn = (props) => {
 
   function login(e) {
     e.preventDefault();
-    if (!props.loggedIn) {
+    if (!loggedIn) {
       if (username && password && username.length > 3 && password.length > 3) {
         props.getAccountData({
           username: username,
@@ -42,21 +46,21 @@ const SignUpIn = (props) => {
   }
 
   useEffect(()=>{
-    if(props.loggedIn && !props.goToBooksAfterLogin) {
+    if(loggedIn && !goToBooksAfterLogin) {
       navigate('/books')
-      props.setGoToBooksAfterLogin(true)
+      setGoToBooksAfterLogin(true)
     }
-  }, [props.loggedIn])
+  }, [loggedIn])
 
   return (
     <section className={`${c.section} flex flexCenter flexColumn`}>
-      {props.loggedIn && (
+      {loggedIn && (
         <div>
           <FcReading className="font70 " />
         </div>
       )}
       <form className={c.form} onSubmit={login}>
-        {!props.loggedIn && (
+        {!loggedIn && (
           <>
             <div>
               <label htmlFor="">Username</label>
