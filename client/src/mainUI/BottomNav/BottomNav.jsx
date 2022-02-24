@@ -51,11 +51,11 @@ const BottomNav = (props) => {
         <div className={`${c.div} flex flexCenter`}>
           <button
             className={`${c.sideButtons} noBg noBorder grayFont ${
-              currentTab === "/" ? "whiteFont" : ""
+              currentTab === "/c" ? "whiteFont" : ""
             }`}
             onClick={()=>goTo('/c')}
           >
-            C
+            ?
           </button>
 
           <button
