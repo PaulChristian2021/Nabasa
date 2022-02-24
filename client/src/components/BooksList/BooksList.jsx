@@ -13,6 +13,7 @@ const BooksList = (props) => {
       {books.map((b) => (
         <BookItem
           myBooks={myBooks}
+          id={b._id}
           key={props.googleBooks ? b.infoLink : b._id}
           title={b.title}
           author={b.author}

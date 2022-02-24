@@ -1,21 +1,20 @@
 import React, { useState, useContext } from "react";
-import { AiOutlineCheckCircle, AiOutlineDelete } from "react-icons/ai";
-import { MdOutlinePending } from "react-icons/md";
+import { AiFillCheckCircle, AiOutlineDelete } from "react-icons/ai";
+import { MdPending } from "react-icons/md";
+import { RiTimer2Line } from "react-icons/ri";
 import { BsPencilFill } from "react-icons/bs";
 import { BiBookAdd } from "react-icons/bi";
 import c from "./BookItem.module.css";
 
-import {NewBookModalContext} from '../../App'
+import { NewBookModalContext } from "../../App";
 
-const BookItem = (props) => { 
-  const newBookModalContext = useContext(NewBookModalContext)
-  console.log(newBookModalContext)
-console.log(props)
+const BookItem = (props) => {
+  const newBookModalContext = useContext(NewBookModalContext);
+  console.log(newBookModalContext);
+  console.log(props);
 
   const [options, setOptions] = useState(false);
-  const genres = props.genres
-    ? props.genres
-    : ["No genre listed"];
+  const genres = props.genres ? props.genres : ["No genre listed"];
 
   function toggleOptions(e) {
     if (
@@ -28,9 +27,12 @@ console.log(props)
       return;
     else setOptions(!options);
   }
-  function addLibraryBook(){
-    newBookModalContext.setNewBookModal(true)
-    newBookModalContext.setGoogleBookToNewBook(props)
+  function addLibraryBook() {
+    newBookModalContext.setNewBookModal(true);
+    newBookModalContext.setGoogleBookToNewBook(props);
+  }
+  function changeStatus() {
+    // if(props.status === 'reading')
   }
   return (
     <li
@@ -75,7 +77,6 @@ console.log(props)
             src={props.image || "optimizedfeather.svg"}
             alt={props.title || ""}
             width={"100px"}
-            
           />
         </div>
       </div>
@@ -85,7 +86,8 @@ console.log(props)
           <p>
             {props.description || (
               <span>
-                Alas, someone was rather busy. Or lazy. Or there was just no description listed.
+                Alas, someone was rather busy. Or lazy. Or there was just no
+                description listed.
                 <br />
                 Therefore, no description was provided.
               </span>
@@ -96,18 +98,25 @@ console.log(props)
           >
             {props.myBooks && (
               <>
-                <div className="flex ">
+                <div className="flex">
                   <button
-                    className="flex noBorder noBg grayFont"
+                    className={`grayFont flex flexCenter noBorder noBg `}
+                    style={{ fontSize: "22px" }}
                     title="Done reading?"
+                    onClick={changeStatus}
                   >
-                    <AiOutlineCheckCircle />
-                  </button>
-                  <button
-                    className="flex noBorder noBg whiteFont "
-                    title="Currently reading?"
-                  >
-                    <MdOutlinePending />
+                    {props.status === "haveRead" ? (
+                      <AiFillCheckCircle className="marginR10" />
+                    ) : props.status === "reading" ? (
+                      <MdPending className="marginR10" />
+                    ) : (
+                      <RiTimer2Line className="marginR10" />
+                    )}
+                    {props.status === "haveRead"
+                      ? "DONE"
+                      : props.status === "reading"
+                      ? "READING"
+                      : "TOREAD"}
                   </button>
                 </div>
                 <div className="flex ">
