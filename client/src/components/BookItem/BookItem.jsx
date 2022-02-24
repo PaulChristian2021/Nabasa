@@ -34,7 +34,6 @@ const BookItem = (props) => {
     newBookModalContext.setGoogleBookToNewBook(props);
   }
   function changeStatus() {
-    // if(props.status === 'reading')
     console.log(props.status)
     if(status === 'reading') setStatus('haveRead')
     else if(status === 'haveRead') setStatus('willRead')
@@ -44,7 +43,7 @@ const BookItem = (props) => {
   
   useEffect(() => {
     setStatus(props.status)
-  }, [])
+  })
   return (
     <li
       onClick={toggleOptions}
