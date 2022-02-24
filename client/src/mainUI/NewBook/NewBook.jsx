@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-
+import { MdOutlineClose } from "react-icons/md";
 import { BiBookAdd } from "react-icons/bi";
 import c from "./NewBook.module.css";
 
@@ -17,7 +17,7 @@ const NewBook = (props) => {
   const [noStatus, setNoStatus] = useState(false);
 
   const readingRef = useRef(null);
-console.log(readingRef)
+  console.log(readingRef);
   function addBook(e) {
     e.preventDefault();
     title ? setNoTitle(false) : setNoTitle(true);
@@ -50,7 +50,7 @@ console.log(readingRef)
       if (googleBookToNewBook.title) setTitle(googleBookToNewBook.title);
       if (googleBookToNewBook.author) setAuthor(googleBookToNewBook.author);
       if (googleBookToNewBook.description)
-      setDescription(googleBookToNewBook.description);
+        setDescription(googleBookToNewBook.description);
       setStatus("willRead");
       if (googleBookToNewBook.image) setImage(googleBookToNewBook.image);
       if (googleBookToNewBook.genres)
@@ -59,7 +59,6 @@ console.log(readingRef)
     }
   }, [googleBookToNewBook]);
 
-
   return (
     <div
       id="formDivBack"
@@ -67,7 +66,12 @@ console.log(readingRef)
       onClick={toggleNewBookModal}
     >
       <form onSubmit={addBook} className={`flex flexColumn whiteBg`}>
-        <p className="font25">Add a book</p>
+        <div className="flex flexCenter flexSBetween">
+          <p className="font25">Add a book</p>
+          <button id="close" className=" noBg noBorder" onClick={()=> props.toggleNewBookModal()}>
+            <MdOutlineClose className="font25 darkFont" />
+          </button>
+        </div>
         <label htmlFor="">
           Title
           {noTitle && <span className="errorFont"> - required</span>}
