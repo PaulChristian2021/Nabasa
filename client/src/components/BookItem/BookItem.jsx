@@ -43,7 +43,7 @@ const BookItem = (props) => {
   
   useEffect(() => {
     setStatus(props.status)
-  })
+  }, props.status)
   return (
     <li
       onClick={toggleOptions}
