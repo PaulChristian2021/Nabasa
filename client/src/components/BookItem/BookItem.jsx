@@ -7,6 +7,7 @@ import { BiBookAdd } from "react-icons/bi";
 import c from "./BookItem.module.css";
 
 import { NewBookModalContext } from "../../App";
+import { useEffect } from "react";
 
 const BookItem = (props) => {
   const newBookModalContext = useContext(NewBookModalContext);
@@ -15,6 +16,7 @@ const BookItem = (props) => {
 
   const [options, setOptions] = useState(false);
   const genres = props.genres ? props.genres : ["No genre listed"];
+  const [status, setStatus] = useState()
 
   function toggleOptions(e) {
     if (
@@ -33,7 +35,16 @@ const BookItem = (props) => {
   }
   function changeStatus() {
     // if(props.status === 'reading')
+    console.log(props.status)
+    if(status === 'reading') setStatus('haveRead')
+    else if(status === 'haveRead') setStatus('willRead')
+    else if(status === 'willRead') setStatus('reading')
+    console.log(status)
   }
+  
+  useEffect(() => {
+    setStatus(props.status)
+  }, [])
   return (
     <li
       onClick={toggleOptions}
@@ -59,9 +70,9 @@ const BookItem = (props) => {
           <p>
             <small>
               {!props.status === "google" && "Status: "}
-              {props.status === "haveRead" ? (
+              {status === "haveRead" ? (
                 <span className="darkFont padding5">Finished</span>
-              ) : props.status === "reading" ? (
+              ) : status === "reading" ? (
                 <span className="whiteFont bluegreenBg padding5">Reading</span>
               ) : props.status === "google" ? (
                 ""
@@ -105,18 +116,18 @@ const BookItem = (props) => {
                     title="Done reading?"
                     onClick={changeStatus}
                   >
-                    {props.status === "haveRead" ? (
+                    {status === "haveRead" ? (
                       <AiFillCheckCircle className="marginR10" />
-                    ) : props.status === "reading" ? (
+                    ) : status === "reading" ? (
                       <MdPending className="marginR10" />
                     ) : (
                       <RiTimer2Line className="marginR10" />
                     )}
-                    {props.status === "haveRead"
+                    {status === "haveRead"
                       ? "DONE"
-                      : props.status === "reading"
+                      : status === "reading"
                       ? "READING"
-                      : "TOREAD"}
+                      : "toREAD"}
                   </button>
                 </div>
                 <div className="flex ">
