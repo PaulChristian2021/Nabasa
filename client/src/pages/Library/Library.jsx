@@ -10,7 +10,7 @@ import { GiSpellBook, GiBookStorm } from "react-icons/gi";
 
 const Library = (props) => {
   const [query, setQuery] = useState("");
-  console.log(props);
+  
 
   function searchGoogleBook(e) {
     e.preventDefault();

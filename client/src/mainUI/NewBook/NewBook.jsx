@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import { BiBookAdd } from "react-icons/bi";
 import c from "./NewBook.module.css";
 
 const NewBook = (props) => {
+  const googleBookToNewBook = props.googleBookToNewBook;
+  console.log(googleBookToNewBook);
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
@@ -14,12 +16,13 @@ const NewBook = (props) => {
   const [noTitle, setNoTitle] = useState(false);
   const [noStatus, setNoStatus] = useState(false);
 
+  const readingRef = useRef(null);
+console.log(readingRef)
   function addBook(e) {
     e.preventDefault();
     title ? setNoTitle(false) : setNoTitle(true);
     status ? setNoStatus(false) : setNoStatus(true);
     if (props.loggedIn && title && status) {
-      console.log(title, author, description, status, image, genre);
       props.addNewBook({
         title,
         author,
@@ -28,7 +31,7 @@ const NewBook = (props) => {
         image,
         genre,
       });
-      props.toggleNewBookModal(false)
+      props.toggleNewBookModal(false);
     }
   }
   function getGenre(value) {
@@ -41,6 +44,21 @@ const NewBook = (props) => {
       props.toggleNewBookModal();
     }
   }
+
+  useEffect(() => {
+    if (googleBookToNewBook) {
+      if (googleBookToNewBook.title) setTitle(googleBookToNewBook.title);
+      if (googleBookToNewBook.author) setAuthor(googleBookToNewBook.author);
+      if (googleBookToNewBook.description)
+      setDescription(googleBookToNewBook.description);
+      setStatus("willRead");
+      if (googleBookToNewBook.image) setImage(googleBookToNewBook.image);
+      if (googleBookToNewBook.genres)
+        setGenre(googleBookToNewBook.genres.join("."));
+      readingRef.current.click();
+    }
+  }, [googleBookToNewBook]);
+
 
   return (
     <div
@@ -85,6 +103,7 @@ const NewBook = (props) => {
         <div className={`${c.readstatus} flex flexSAround maxWidth400`}>
           <label>
             <input
+              id="haveRead"
               type="radio"
               name="readstatus"
               onClick={() => {
@@ -109,6 +128,7 @@ const NewBook = (props) => {
             <input
               type="radio"
               name="readstatus"
+              ref={readingRef}
               onClick={() => {
                 setNoStatus(false);
                 setStatus("willRead");

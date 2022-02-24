@@ -6,7 +6,7 @@ import { IoLibrarySharp } from "react-icons/io5";
 import c from "./MyLibrary.module.css";
 import BooksList from "../../components/BooksList/BooksList";
 const MyLibrary = (props) => {
-  console.log(props.books);
+  
   return (
     <section className={`${c.section}  height100 width100`}>
       {!props.loggedIn && (

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
 import ReactDOM from "react-dom";
 import {
   BrowserRouter,
@@ -19,15 +19,18 @@ import Header from "./mainUI/Header/Header";
 import NewBook from "./mainUI/NewBook/NewBook";
 import BottomNav from "./mainUI/BottomNav/BottomNav";
 
+export const NewBookModalContext = createContext();
+
 function App() {
   const [newBookModal, setNewBookModal] = useState(false);
 
   const [googleBooks, setGoogleBooks] = useState([]);
+  const [googleBookToNewBook, setGoogleBookToNewBook] = useState()
 
   const [books, setBooks] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [goToBooksAfterLogin, setGoToBooksAfterLogin] = useState(false)
+  const [goToBooksAfterLogin, setGoToBooksAfterLogin] = useState(false);
 
   const [user, setUser] = useState("");
   const [toRead, setToRead] = useState(0);
@@ -47,17 +50,15 @@ function App() {
       .then((data) => {
         setLoading(false);
         if (data.message) {
-          console.log(data.message);
         } else if (Array.isArray(data)) {
           setUser(username);
           setBooks(data);
-          console.log(data);
+
           setLoggedIn(true);
         }
       });
   }
   function updateBooksToDB(latestbooks) {
-    console.log(latestbooks);
     fetch("http://localhost:6262/account/updateBooks", {
       method: "POST",
       headers: {
@@ -69,13 +70,14 @@ function App() {
   function logout() {
     setLoggedIn(false);
     setBooks([]);
-    setUser('')
+    setUser("");
   }
   function toggleNewBookModal(val) {
+    setGoogleBookToNewBook(null)
     setNewBookModal(!!val ? val : !newBookModal);
+
   }
   function addNewBook(book) {
-    console.log('add book: '+book)
     const newBook = { ...book, _id: String(Math.random() * 9999999999) };
     setBooks((state) => {
       updateBooksToDB([...state, newBook]);
@@ -94,10 +96,7 @@ function App() {
   }, [books]);
   useEffect(() => {
     //localStorage
-    console.log(books);
   }, [books]);
-
-  
 
   function getBooksFromGoogle(query) {
     //get books from google books API
@@ -106,11 +105,10 @@ function App() {
     )
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
-        const resBooks = []
+        const resBooks = [];
         res.items.forEach((b) => resBooks.push(b.volumeInfo));
-        console.log(resBooks);
-        setGoogleBooks(resBooks)
+
+        setGoogleBooks(resBooks);
       });
   }
 
@@ -123,34 +121,36 @@ function App() {
           reading={reading}
           haveRead={haveRead}
         />
-        <Routes>
-          <Route path="*" element={<MyLibrary />} />
-          <Route
-            path="/books"
-            element={<MyLibrary books={books} loggedIn={loggedIn} />}
-          />
-          <Route
-            path="/library"
-            element={
-              <Library
-                getBooksFromGoogle={getBooksFromGoogle}
-                googleBooks={googleBooks}
-              />
-            }
-          />
-          <Route
-            path="/account"
-            element={
-              <SignUpIn
-                getAccountData={getAccountData}
-                logout={logout}
-                loggedIn={loggedIn}
-                goToBooksAfterLogin={goToBooksAfterLogin}
-                setGoToBooksAfterLogin={setGoToBooksAfterLogin}
-              />
-            }
-          />
-        </Routes>
+        <NewBookModalContext.Provider value={{ newBookModal, setNewBookModal, setGoogleBookToNewBook }}>
+          <Routes>
+            <Route path="*" element={<MyLibrary />} />
+            <Route
+              path="/books"
+              element={<MyLibrary books={books} loggedIn={loggedIn} />}
+            />
+            <Route
+              path="/library"
+              element={
+                <Library
+                  getBooksFromGoogle={getBooksFromGoogle}
+                  googleBooks={googleBooks}
+                />
+              }
+            />
+            <Route
+              path="/account"
+              element={
+                <SignUpIn
+                  getAccountData={getAccountData}
+                  logout={logout}
+                  loggedIn={loggedIn}
+                  goToBooksAfterLogin={goToBooksAfterLogin}
+                  setGoToBooksAfterLogin={setGoToBooksAfterLogin}
+                />
+              }
+            />
+          </Routes>
+        </NewBookModalContext.Provider>
         <BottomNav toggleNewBookModal={toggleNewBookModal} />
         {loading && <Loading />}
         {newBookModal &&
@@ -159,6 +159,7 @@ function App() {
               loggedIn={loggedIn}
               toggleNewBookModal={toggleNewBookModal}
               addNewBook={addNewBook}
+              googleBookToNewBook={googleBookToNewBook}
             />,
             document.querySelector("#root")
           )}

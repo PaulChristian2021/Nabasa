@@ -5,7 +5,7 @@ const port = process.env.PORT || 6262;
 
 const express = require('express')
 const mongoose = require('mongoose');
-
+const Account = require('./models/account.js')
 
 const app = express()
 
@@ -26,7 +26,11 @@ db.once('open', () => {
 app.use(express.json())
 app.use(cors())
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
+    // const acc = await Account.updateOne({username: 'paul', }, { $set:{ 'books.title': } })
+    console.log(acc)
+    // acc.addBook()
+    // acc.save()
     res.send('Nabasa by Paul Christian')
 })
 app.post('/', (req, res) => {

@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { AiOutlineCheckCircle, AiOutlineDelete } from "react-icons/ai";
 import { MdOutlinePending } from "react-icons/md";
 import { BsPencilFill } from "react-icons/bs";
 import { BiBookAdd } from "react-icons/bi";
 import c from "./BookItem.module.css";
 
-const BookItem = (props) => {
-  
+import {NewBookModalContext} from '../../App'
+
+const BookItem = (props) => { 
+  const newBookModalContext = useContext(NewBookModalContext)
+  console.log(newBookModalContext)
+console.log(props)
+
   const [options, setOptions] = useState(false);
   const genres = props.genres
     ? props.genres
@@ -22,6 +27,10 @@ const BookItem = (props) => {
     )
       return;
     else setOptions(!options);
+  }
+  function addLibraryBook(){
+    newBookModalContext.setNewBookModal(true)
+    newBookModalContext.setGoogleBookToNewBook(props)
   }
   return (
     <li
@@ -119,6 +128,7 @@ const BookItem = (props) => {
                 <button
                   className="flex flexCenter width100 noBorder noBg grayFont"
                   title="Add book"
+                  onClick={addLibraryBook}
                 >
                   <BiBookAdd />
                 </button>
