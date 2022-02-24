@@ -12,6 +12,7 @@ import "./App.css";
 
 import MyLibrary from "./pages/MyLibrary/MyLibrary";
 import Library from "./pages/Library/Library";
+import Feat from './pages/Feat/Feat.jsx'
 import SignUpIn from "./pages/SignUpIn/SignUpIn";
 import Loading from "./pages/Loading/Loading";
 
@@ -137,6 +138,7 @@ function App() {
                 />
               }
             />
+            <Route path='/c' element={<Feat />} />
             <Route
               path="/account"
               element={

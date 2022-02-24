@@ -53,6 +53,7 @@ const BottomNav = (props) => {
             className={`${c.sideButtons} noBg noBorder grayFont ${
               currentTab === "/" ? "whiteFont" : ""
             }`}
+            onClick={()=>goTo('/c')}
           >
             C
           </button>
