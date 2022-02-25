@@ -115,7 +115,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div id="App" className="vh100 lightgrayBg">
+      <div id="App" className="vh100 ">
         <Header
           user={user}
           toRead={toRead}

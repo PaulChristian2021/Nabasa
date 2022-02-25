@@ -45,3 +45,11 @@
 .statuses button svg{
     height: 100%;
 }
+
+@media(min-width: 800px) {
+    .li{
+        align-self:baseline;
+        min-height: 220px;
+    }
+    
+}

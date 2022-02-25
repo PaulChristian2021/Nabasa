@@ -1,5 +1,6 @@
 import React from "react";
 import BookItem from "../BookItem/BookItem";
+import c from './Booklist.module.css'
 
 const BooksList = (props) => {
     const books = props.books ? props.books : props.googleBooks;
@@ -8,7 +9,7 @@ const BooksList = (props) => {
     
   return (
     <ul
-      className={`${props.className ? props.className : ''} flex flexColumn flexCenter noBulletList height100 width100 `}
+      className={`${props.className ? props.className : ''} ${c.ul} flex flexColumn flexCenter noBulletList height100 width100 `}
     >
       {books.map((b) => (
         <BookItem

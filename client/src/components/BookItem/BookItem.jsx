@@ -82,7 +82,8 @@ const BookItem = (props) => {
           <img
             src={props.image || "optimizedfeather.svg"}
             alt={props.title || ""}
-            width={"100px"}
+            width={"110px"} height={'100%'}
+            style={{marginLeft:'5px'}}
           />
         </div>
       </div>

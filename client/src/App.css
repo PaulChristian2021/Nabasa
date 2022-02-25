@@ -1,11 +1,21 @@
 
 #App {
   text-align: center;
-  
-
+  z-index: -2;
   padding-bottom: 60px;
 }
-
+#App::before{
+  content: '';
+  height: 100%; width: 100%;
+  position: fixed;
+  top: 0; left: 0;
+  background: #E3E3CD url('../public/Angelo_Gemmi_rosette_3.svg') no-repeat 40% 48%;
+  background-size:150%;
+  opacity: .2;
+  transform: rotate(360deg);
+  z-index: -1;
+}
+#App *{z-index: 0;}
 .noBg{
   background: none;
 }
