@@ -10,6 +10,7 @@ import { NewBookModalContext } from "../../App";
 import { useEffect } from "react";
 
 const BookItem = (props) => {
+  console.log(props)
   const newBookModalContext = useContext(NewBookModalContext);
 
   const [options, setOptions] = useState(false);

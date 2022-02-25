@@ -6,6 +6,7 @@ import c from "./NewBook.module.css";
 const NewBook = (props) => {
   const googleBookToNewBook = props.googleBookToNewBook;
   console.log(googleBookToNewBook);
+  console.log(props);
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
@@ -17,26 +18,23 @@ const NewBook = (props) => {
   const [noStatus, setNoStatus] = useState(false);
 
   const readingRef = useRef(null);
-  console.log(readingRef);
+  // console.log(readingRef);
   function addBook(e) {
     e.preventDefault();
     title ? setNoTitle(false) : setNoTitle(true);
     status ? setNoStatus(false) : setNoStatus(true);
     if (props.loggedIn && title && status) {
+      const genres = genre.split(".");
       props.addNewBook({
         title,
         author,
         description,
         status,
         image,
-        genre,
+        genres: genres,
       });
       props.toggleNewBookModal(false);
     }
-  }
-  function getGenre(value) {
-    const genre = value.split(".");
-    setGenre(genre);
   }
 
   function toggleNewBookModal(e) {
@@ -53,8 +51,9 @@ const NewBook = (props) => {
         setDescription(googleBookToNewBook.description);
       setStatus("willRead");
       if (googleBookToNewBook.image) setImage(googleBookToNewBook.image);
-      if (googleBookToNewBook.genres)
+      if (googleBookToNewBook.genres){
         setGenre(googleBookToNewBook.genres.join("."));
+      }
       readingRef.current.click();
     }
   }, [googleBookToNewBook]);
@@ -155,7 +154,7 @@ const NewBook = (props) => {
           type="text"
           placeholder="Ex: drama.comedy.tragedy"
           value={genre}
-          onChange={(e) => getGenre(e.target.value)}
+          onChange={(e) => setGenre(e.target.value)}
         />
         <button
           id="formAddButton"
