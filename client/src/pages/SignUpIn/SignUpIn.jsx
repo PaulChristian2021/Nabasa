@@ -110,6 +110,10 @@ const SignUpIn = (props) => {
           </Link>
         </div>
       )}
+      {!props.loggedIn && <button className="bottomRightNotif blackBg whiteFont smoothEdge padding10 pointer noBorder shadow">
+          <p>Username: paul</p>
+          <p>Password: paul</p>
+        </button>}
     </section>
   );
 };

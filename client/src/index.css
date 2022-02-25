@@ -18,5 +18,11 @@ a:active, button:active{
 }
 a:hover, button:hover{
   cursor: pointer;
-  filter: brightness(1.1);
+  filter: brightness(1.2);
+}
+
+.bottomRightNotif{
+  position: fixed;
+  right: 20px;
+  bottom: 75px;
 }
