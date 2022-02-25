@@ -11,8 +11,6 @@ import { useEffect } from "react";
 
 const BookItem = (props) => {
   const newBookModalContext = useContext(NewBookModalContext);
-  console.log(newBookModalContext);
-  console.log(props);
 
   const [options, setOptions] = useState(false);
   const genres = props.genres ? props.genres : ["No genre listed"];
@@ -34,16 +32,14 @@ const BookItem = (props) => {
     newBookModalContext.setGoogleBookToNewBook(props);
   }
   function changeStatus() {
-    console.log(props.status)
     if(status === 'reading') setStatus('haveRead')
     else if(status === 'haveRead') setStatus('willRead')
     else if(status === 'willRead') setStatus('reading')
-    console.log(status)
   }
   
   useEffect(() => {
     setStatus(props.status)
-  }, props.status)
+  },[])
   return (
     <li
       onClick={toggleOptions}
@@ -67,7 +63,7 @@ const BookItem = (props) => {
             ))}
           </ul>
           <p>
-            <small>
+            <small className={c.small}>
               {!props.status === "google" && "Status: "}
               {status === "haveRead" ? (
                 <span className="darkFont padding5">Finished</span>
@@ -110,7 +106,7 @@ const BookItem = (props) => {
               <>
                 <div className="flex">
                   <button
-                    className={`grayFont flex flexCenter noBorder noBg `}
+                    className={`${c.changeStatusBtn} grayFont flex flexCenter noBorder noBg `}
                     style={{ fontSize: "22px" }}
                     title="Done reading?"
                     onClick={changeStatus}

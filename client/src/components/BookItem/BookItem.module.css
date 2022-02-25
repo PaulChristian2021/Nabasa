@@ -17,6 +17,12 @@
 .genres li{
     margin-right: 5px;
 }
+.small *{
+    transition: all .5s;
+}
+.changeStatusBtn{
+    transition: all .2s;
+}
 .options{
     width: 105%;
 }
