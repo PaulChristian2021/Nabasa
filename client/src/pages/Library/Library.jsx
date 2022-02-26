@@ -15,6 +15,7 @@ const Library = (props) => {
   function searchGoogleBook(e) {
     e.preventDefault();
     if (query.length >= 1) props.getBooksFromGoogle(query);
+    setQuery('')
   }
   return (
     <section className="">
@@ -24,8 +25,8 @@ const Library = (props) => {
         onChange={(e) => setQuery(e.target.value)}
         placeholder={"Type title..."}
         onFormSubmit={searchGoogleBook}
-        className={"padding10 noBorder width100 maxWidth400"}
-        formClassName={"flex flexCenter width100"}
+        className={""}
+        formClassName={""}
       ></SearchBar>
       <h1 className="darkFont">Search for books</h1>
       {props.googleBooks.length < 1 && (

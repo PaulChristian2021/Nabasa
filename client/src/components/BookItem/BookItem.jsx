@@ -10,7 +10,7 @@ import { NewBookModalContext } from "../../App";
 import { useEffect } from "react";
 
 const BookItem = (props) => {
-  console.log(props)
+  // console.log(props)
   const newBookModalContext = useContext(NewBookModalContext);
 
   const [options, setOptions] = useState(false);
@@ -44,7 +44,7 @@ const BookItem = (props) => {
   return (
     <li
       onClick={toggleOptions}
-      className={`${c.li} flex flexSBetween flexColumn smoothEdge whiteBg shadow margin5 pointer`}
+      className={`${c.li} flex flexSBetween flexColumn smoothEdge whiteBg shadow margin5 pointer liftShadow`}
     >
       <div className="flex flexSBetween padding5">
         <div>

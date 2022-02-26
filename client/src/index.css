@@ -20,6 +20,16 @@ a:hover, button:hover{
   cursor: pointer;
   filter: brightness(1.2);
 }
+.darkHover:hover{
+  filter: brightness(.98);
+}
+.liftShadow{
+  transition: .4s;
+}
+.liftShadow:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 10px 15px 0 rgba(34, 34, 34, 0.5);
+}
 
 .bottomRightNotif{
   position: fixed;
