@@ -26,27 +26,30 @@ const BottomNav = (props) => {
       <nav className={`${c.nav} flex flexCenter blackBg maxWidth400`}>
         <div className={`${c.div} flex flexCenter`}>
           <button
-            className={`${c.sideButtons} noBg noBorder grayFont ${
+            className={`${c.sideButtons} flex flexCenter flexColumn noBg noBorder grayFont ${
               currentTab === "/books" ? "whiteFont" : ""
             }`}
             onClick={() => goTo("/books")}
           >
             <IoLibrarySharp />
+            <span className="margin5 font11">Shelf</span>
           </button>
           <button
-            className={`${c.sideButtons} noBg noBorder grayFont ${
+            className={`${c.sideButtons} flex flexCenter flexColumn noBg noBorder grayFont ${
               currentTab === "/library" ? "whiteFont" : ""
             }`}
             onClick={() => goTo("/library")}
           >
             <ImLibrary />
+            <span className="margin5 font11">Find</span>
           </button>
         </div>
         <button
-          className={`${c.button} round salmonBg whiteFont noBorder`}
+          className={`${c.button} flex flexCenter flexColumn round salmonBg whiteFont noBorder`}
           onClick={() => props.toggleNewBookModal()}
         >
           <RiQuillPenFill />
+          <span className="margin5 marginR10 font11">Add</span>
         </button>
         <div className={`${c.div} flex flexCenter`}>
           <button
@@ -56,15 +59,17 @@ const BottomNav = (props) => {
             onClick={()=>goTo('/c')}
           >
             ?
+            
           </button>
 
           <button
-            className={`${c.sideButtons} noBg noBorder grayFont ${
+            className={`${c.sideButtons} flex flexCenter flexColumn noBg noBorder grayFont ${
               currentTab === "/account" ? "whiteFont" : ""
             }`}
             onClick={() => goTo("/account")}
           >
             <FaGlasses />
+            <span className="margin5 font11">Account</span>
           </button>
         </div>
       </nav>

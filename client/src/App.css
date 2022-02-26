@@ -59,7 +59,9 @@
   color: rgba(255, 41, 41, 0.87);
   font-size: small;
 }
-
+.font11{
+  font-size: 11px;
+}
 .font25{
   font-size: 25px;
 }
