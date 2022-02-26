@@ -52,7 +52,7 @@ const MyLibrary = (props) => {
             value={inputVal}
             onChange={searchBooks}
             onFormSubmit={submitForm}
-            placeholder={"Search your books"}
+            placeholder={"Search your shelf"}
             className={""}
             formClassName={""}
           ></SearchBar>

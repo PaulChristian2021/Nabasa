@@ -23,7 +23,7 @@ const Library = (props) => {
         type="search"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        placeholder={"Type title..."}
+        placeholder={"Find new books"}
         onFormSubmit={searchGoogleBook}
         className={""}
         formClassName={""}
