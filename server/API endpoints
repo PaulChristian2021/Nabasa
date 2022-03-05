@@ -1,0 +1,24 @@
+PURPOSE
+METHOD
+PATH
+PAYLOAD ( "field" = StringValue)   [data] = Array   {data} = Object )
+RETURNS
+----------
+Inserts a new book to DB with user data
+POST
+/api/books
+{"user", "author", "title", "description", ["genres"], "image", "status"}
+{"message"}
+----------
+Deletes a book
+DELETE
+/api/books/:user/:bookId
+
+{"message"}
+----------
+Gets all books of a user
+GET
+/api/books/:user
+
+[{}] array of books of :user
+-----------

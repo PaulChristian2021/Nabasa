@@ -38,6 +38,22 @@ function App() {
   const [haveRead, setHaveRead] = useState(0);
   const [reading, setReading] = useState(0);
 
+  // function getBooksFromDB(user){
+  //   setLoading(true);
+  //   fetch(`http://localhost:6262/api/books/${user}`, {
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setLoading(false);
+  //       if (data.message) {
+  //       } else if (Array.isArray(data)) {
+  //         setUser(user.slice(0,1).toUpperCase() + user.slice(1));
+  //         setBooks(data);
+  //         setLoggedIn(true);
+  //       }
+  //     });
+  // }
+
   function getAccountData({ username, password }) {
     setLoading(true);
     fetch("https://nabasa-mern.herokuapp.com/account", {
