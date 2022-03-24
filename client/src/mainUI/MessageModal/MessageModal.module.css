@@ -3,3 +3,7 @@
     top: 0px;
     background-color: rgba(0, 0, 0, 0.445);
 }
+.p{
+    max-width: 85vw;
+    text-align: center;
+}

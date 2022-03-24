@@ -1,9 +1,10 @@
 import React from "react";
+import c from './SearchBar.module.css'
 import { BsSearch } from "react-icons/bs";
 
 const SearchBar = (props) => {
   return (
-    <form onSubmit={props.onFormSubmit} className={`${props.formClassName} flex flexCenter width100`}>
+    <form onSubmit={props.onFormSubmit} className={`${props.formClassName} ${c.form} flex flexCenter width100 `}>
       {props.children}
       <div className="flex flexCenter margin15 width100">
         <input

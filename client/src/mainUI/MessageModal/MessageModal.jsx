@@ -7,7 +7,7 @@ const MessageModal = (props) => {
     }
   return (
     <div onClick={closeModal} className={`${c.div} flex flexCenter height100 width100`}>
-        <p className='whiteBg padding10'>{props.message}</p>
+        <p className={`${c.p} whiteBg padding10 font25`}>{props.message}</p>
     </div>
   )
 }

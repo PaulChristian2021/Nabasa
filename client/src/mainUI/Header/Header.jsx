@@ -4,7 +4,7 @@ import c from "./Header.module.css";
 const Header = (props) => {
   const loggedIn = props.user ? true : false;
   return (
-    <div className="flex flexCenter blackBg">
+    <div className={`${c.div} flex flexCenter blackBg fixed width100`}>
       <header
         className={`${c.header} flex flexCenter flexSAround whiteFont width100 maxWidth400`}
       >

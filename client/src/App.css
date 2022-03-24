@@ -140,3 +140,7 @@
 .vh100{
   min-height: 100vh;
 }
+
+.fixed{
+  position: fixed;
+}
