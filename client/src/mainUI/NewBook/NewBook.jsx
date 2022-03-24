@@ -23,7 +23,11 @@ const NewBook = (props) => {
     e.preventDefault();
     title ? setNoTitle(false) : setNoTitle(true);
     status ? setNoStatus(false) : setNoStatus(true);
-    if (props.loggedIn && title && status) {
+    if(!props.loggedIn){
+      console.log('not logged in')
+      props.setMessageModalMessage('You are not logged in')
+      props.setMessageModal(true)
+    }else if (props.loggedIn && title && status) {
       const genres = genre.split(".");
       props.addNewBook({
         title,
@@ -34,6 +38,10 @@ const NewBook = (props) => {
         genres: genres,
       });
       props.toggleNewBookModal(false);
+    }else{
+      console.log('not logged in')
+      props.setMessageModalMessage('Fill the required details')
+      props.setMessageModal(true)
     }
   }
 

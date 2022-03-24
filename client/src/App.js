@@ -12,21 +12,24 @@ import "./App.css";
 
 import MyLibrary from "./pages/MyLibrary/MyLibrary";
 import Library from "./pages/Library/Library";
-import Feat from './pages/Feat/Feat.jsx'
+import Feat from "./pages/Feat/Feat.jsx";
 import SignUpIn from "./pages/SignUpIn/SignUpIn";
 import Loading from "./pages/Loading/Loading";
 
 import Header from "./mainUI/Header/Header";
 import NewBook from "./mainUI/NewBook/NewBook";
+import MessageModal from "./mainUI/MessageModal/MessageModal";
 import BottomNav from "./mainUI/BottomNav/BottomNav";
 
 export const NewBookModalContext = createContext();
 
 function App() {
   const [newBookModal, setNewBookModal] = useState(false);
+  const [messageModal, setMessageModal] = useState(true);
+  const [messageModalMessage, setMessageModalMessage] = useState('');
 
   const [googleBooks, setGoogleBooks] = useState([]);
-  const [googleBookToNewBook, setGoogleBookToNewBook] = useState()
+  const [googleBookToNewBook, setGoogleBookToNewBook] = useState();
 
   const [books, setBooks] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
@@ -90,9 +93,8 @@ function App() {
     setUser("");
   }
   function toggleNewBookModal(val) {
-    setGoogleBookToNewBook(null)
+    setGoogleBookToNewBook(null);
     setNewBookModal(!!val ? val : !newBookModal);
-
   }
   function addNewBook(book) {
     const newBook = { ...book, _id: String(Math.random() * 9999999999) };
@@ -138,7 +140,13 @@ function App() {
           reading={reading}
           haveRead={haveRead}
         />
-        <NewBookModalContext.Provider value={{ newBookModal, setNewBookModal, setGoogleBookToNewBook }}>
+        <NewBookModalContext.Provider
+          value={{
+            newBookModal,
+            setNewBookModal,
+            setGoogleBookToNewBook,
+          }}
+        >
           <Routes>
             <Route path="*" element={<MyLibrary />} />
             <Route
@@ -154,7 +162,7 @@ function App() {
                 />
               }
             />
-            <Route path='/c' element={<Feat />} />
+            <Route path="/c" element={<Feat />} />
             <Route
               path="/account"
               element={
@@ -178,6 +186,16 @@ function App() {
               toggleNewBookModal={toggleNewBookModal}
               addNewBook={addNewBook}
               googleBookToNewBook={googleBookToNewBook}
+              setMessageModal={setMessageModal}
+              setMessageModalMessage={setMessageModalMessage}
+            />,
+            document.querySelector("#root")
+          )}
+        {messageModal &&
+          ReactDOM.createPortal(
+            <MessageModal
+              message={messageModalMessage}
+              setMessageModal={setMessageModal}
             />,
             document.querySelector("#root")
           )}
